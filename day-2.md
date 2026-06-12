@@ -7,12 +7,11 @@ Two-pointer solution:
 - If the sum of the two numbers equals `target`, return their indices
 
 ```py
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i, num in enumerate(nums):
-            for j in range(i+1,len(nums)):
-                if num + nums[j] == target:
-                    return [i, j]
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    for i, num in enumerate(nums):
+        for j in range(i+1,len(nums)):
+            if num + nums[j] == target:
+                return [i, j]
 ```
 
 Set the minimum price to infinity and the maximum profit to 0
@@ -24,14 +23,13 @@ Set the minimum price to infinity and the maximum profit to 0
 Return the maximum profit
 
 ```py
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        minPrice = float('inf')
-        maxProfit = 0
-        for price in prices:
-            if price < minPrice:
-                minPrice = price
-            elif price - minPrice > maxProfit:
-                maxProfit = price - minPrice
-        return maxProfit
+def maxProfit(self, prices: List[int]) -> int:
+    minPrice = float('inf')
+    maxProfit = 0
+    for price in prices:
+        if price < minPrice:
+            minPrice = price
+        elif price - minPrice > maxProfit:
+            maxProfit = price - minPrice
+    return maxProfit
 ```

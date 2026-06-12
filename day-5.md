@@ -13,17 +13,16 @@ Two-pointer solution:
 Return `True` if all corresponding characters match
 
 ```py
-class Solution:
-    def isPalindrome(self, x: int) -> bool:
-        if x < 0: return False
-        s = str(x)
-        left = 0
-        right = len(s) - 1
-        while left < right:
-            if s[left] != s[right]: return False
-            left += 1
-            right -= 1
-        return True
+def isPalindrome(self, x: int) -> bool:
+    if x < 0: return False
+    s = str(x)
+    left = 0
+    right = len(s) - 1
+    while left < right:
+        if s[left] != s[right]: return False
+        left += 1
+        right -= 1
+    return True
 ```
 
 Two-pointer solution:
@@ -43,25 +42,24 @@ Two-pointer solution:
 Return all unique triplets whose sum is 0
 
 ```py
-class Solution:
-    def threeSum(self, nums: list[int]) -> list[list[int]]:
-        result = []
-        nums.sort()
-        for i in range(len(nums) - 2):
-            if i > 0 and nums[i] == nums[i-1]: continue
-            left = i + 1
-            right = len(nums) - 1
-            while(left < right):
-                sum = nums[i] + nums[left] + nums[right]
-                if sum == 0:
-                    result.append([nums[i], nums[left], nums[right]])
-                    while left < right and nums[left] == nums[left + 1]: left += 1
-                    while left < right and nums[right] == nums[right - 1]: right -= 1
-                    left += 1
-                    right -= 1
-                elif sum < 0:
-                    left += 1
-                else:
-                    right -= 1
-        return result
+def threeSum(self, nums: list[int]) -> list[list[int]]:
+    result = []
+    nums.sort()
+    for i in range(len(nums) - 2):
+        if i > 0 and nums[i] == nums[i-1]: continue
+        left = i + 1
+        right = len(nums) - 1
+        while(left < right):
+            sum = nums[i] + nums[left] + nums[right]
+            if sum == 0:
+                result.append([nums[i], nums[left], nums[right]])
+                while left < right and nums[left] == nums[left + 1]: left += 1
+                while left < right and nums[right] == nums[right - 1]: right -= 1
+                left += 1
+                right -= 1
+            elif sum < 0:
+                left += 1
+            else:
+                right -= 1
+    return result
 ```
